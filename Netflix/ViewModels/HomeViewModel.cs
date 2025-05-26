@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Netflix.Models;
@@ -18,6 +13,15 @@ namespace Netflix.ViewModels
         {
             _tmdbService = tmdbService;
         }
+
+        [ObservableProperty]
+        private Media _trendingMovie;
+
+        [ObservableProperty]
+        [NotifyPropertyChangedFor(nameof(ShowMovieInfoBox))]
+        private Media? _selectedMedia;
+
+        public bool ShowMovieInfoBox => SelectedMedia is not null;
 
         public ObservableCollection<Media> Trending { get; set; } = new();
         public ObservableCollection<Media> TopRated { get; set; } = new();
@@ -41,7 +45,18 @@ namespace Netflix.ViewModels
             var topRatedList = medias[2];
             var actionList = medias[3];
 
+            // Seting random trending movie from Trending List to the Trending Movie
+            TrendingMovie = trendingList.OrderBy(t => Guid.NewGuid())
+                                .FirstOrDefault(t =>
+                                    !string.IsNullOrWhiteSpace(t.DisplayTitle)
+                                    && !string.IsNullOrWhiteSpace(t.Thumbnail));
 
+            SetMediaCollection(trendingList, Trending);
+            SetMediaCollection(netflixOriginalsList, NetflixOriginals);
+            SetMediaCollection(topRatedList, TopRated);
+            SetMediaCollection(actionList, ActionMovies);
+
+            //SelectedMedia = TrendingMovie;
         }
 
         private static void SetMediaCollection(IEnumerable<Media> medias, ObservableCollection<Media> collection)
@@ -53,6 +68,17 @@ namespace Netflix.ViewModels
             }
         }
 
-        //puudu
+        [RelayCommand]
+        private void SelectMedia(Media? media = null)
+        {
+            if (media is not null)
+            {
+                if (media.Id == SelectedMedia?.Id)
+                {
+                    media = null;
+                }
+            }
+            SelectedMedia = media;
+        }
     }
 }
