@@ -11,7 +11,8 @@
           Padding="0">
         <ScrollView BackgroundColor="Black">
             <VerticalStackLayout>
-                <Grid HeightRequest="500">
+                <Grid HeightRequest="500"
+                      VerticalOptions="Center">
                     <Image Aspect="Center"
                            HeightRequest="350"
                            VerticalOptions="Start">
@@ -23,6 +24,7 @@
             </VerticalStackLayout>
         </ScrollView>
     </Grid>
+    
     
 
 </ContentPage>
