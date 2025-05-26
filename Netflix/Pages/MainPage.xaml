@@ -48,9 +48,6 @@
                                    Style="{StaticResource MenuLabel}"/>
                             <Label Text="Categories"
                                    Style="{StaticResource MenuLabel}">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="CategoriesMenu_Tapped"/>
-                                </Label.GestureRecognizers>
                             </Label>
                         </FlexLayout>
                     </Grid>
@@ -155,6 +152,7 @@
                                VerticalOptions="End"
                                IsVisible="{Binding ShowMovieInfoBox}"
                                Closed="MovieInfoBox_Closed"/>
+
     </Grid>
 
 </ContentPage>
