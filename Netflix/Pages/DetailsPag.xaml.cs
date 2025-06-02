@@ -5,6 +5,7 @@ namespace Netflix.Pages;
 public partial class DetailsPag : ContentPage
 {
     private readonly DetailsViewModel _viewModel;
+
     public DetailsPag(DetailsViewModel viewModel)
     {
         InitializeComponent();
@@ -27,8 +28,18 @@ public partial class DetailsPag : ContentPage
         await _viewModel.InitializeAsync();
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private void TrailersTab_Tapped(object sender, TappedEventArgs e)
     {
+       
+    }
 
+    private void SimilarTab_Tapped(object sender, TappedEventArgs e)
+    {
+       
+    }
+
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        
     }
 }
