@@ -5,7 +5,7 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="Black"
              xmlns:vm="clr-namespace:Netflix.ViewModels"
-             xmlns:controls="clr-namespace:Netflix.Controls"        
+             xmlns:controls="clr-namespace:Netflix.Controls"
              x:DataType="vm:HomeViewModel">
 
     <ContentPage.Resources>

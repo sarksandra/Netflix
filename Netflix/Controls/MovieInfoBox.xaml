@@ -4,7 +4,7 @@
              x:Class="Netflix.Controls.MovieInfoBox"
              xmlns:models="clr-namespace:Netflix.Models"
              xmlns:controls="clr-namespace:Netflix.Controls"
-              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Name="this"
              Padding="0"
              Margin="0">
