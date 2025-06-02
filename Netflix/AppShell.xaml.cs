@@ -8,6 +8,7 @@ namespace Netflix
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(CategoriePage), typeof(CategoriePage));
+   
         }
     }
 }

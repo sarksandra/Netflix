@@ -34,6 +34,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<CategoriesViewModel>();
         builder.Services.AddSingleton<CategoriePage>();
 
+        builder.Services.AddTransientWithShellRoute<DetailsPag, DetailsViewModel>(nameof(DetailsPag));
+
         return builder.Build();
-	}
+    }
 }

@@ -9,6 +9,28 @@
              Padding="0"
              Margin="0">
 
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Ellipse" x:Key="iconBg">
+                <Setter Property="HeightRequest" Value="25"/>
+                <Setter Property="WidthRequest" Value="25"/>
+                <Setter Property="Fill" Value="#3c3c3c"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="Image" x:Key="iconImg">
+                <Setter Property="HeightRequest" Value="20"/>
+                <Setter Property="WidthRequest" Value="20"/>
+                <Setter Property="Aspect" Value="AspectFill"/>
+            </Style>
+            <Style TargetType="Label" x:Key="iconBtnText">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="TextColor" Value="#9d9d9d"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
     <Border BindingContext="{x:Reference this}"
             StrokeShape="RoundRectangle 10, 10, 0, 0"
             StrokeThickness="0"
@@ -36,6 +58,7 @@
                         </Image.Source>
                     </Image>
                 </Border>
+
                 <Grid Grid.Row="0"
                       Grid.Column="1"
                       ColumnDefinitions="*, Auto">
@@ -160,6 +183,10 @@
             </Grid>
 
         </VerticalStackLayout>
+
+        <Border.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+        </Border.GestureRecognizers>
     </Border>
 
 </ContentView>
